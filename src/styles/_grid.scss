@@ -1,0 +1,102 @@
+$N_COLUMNS: 12;
+$MAX_GAP: 10;
+
+$breakpoint-xxl: 1440px;
+$breakpoint-xl: 1200px;
+$breakpoint-lg: 992px;
+$breakpoint-md: 768px;
+$breakpoint-sm: 576px;
+
+.grid-container {
+   display: flex;
+   flex-wrap: wrap;
+   gap: var(--spacing-y) var(--spacing-x);
+   --spacing-x: 1rem;
+   --spacing-y: 1rem;
+   --n-columns: #{$N_COLUMNS};
+}
+
+.col {
+   flex: 0 0 auto;
+}
+
+[class*="col-"] {
+   flex: 0 0 auto;
+}
+
+.grid-container > * {
+   width: 100%;
+}
+
+.col-auto {
+   width: auto;
+}
+
+@for $i from 0 through $MAX_GAP {
+   $spacing: calc($i * 0.5rem);
+
+   .sp-#{$i} {
+      --spacing-x: #{$spacing};
+      --spacing-y: #{$spacing};
+   }
+
+   .r-sp-#{$i} {
+      --spacing-y: #{$spacing};
+   }
+
+   .c-sp-#{$i} {
+      --spacing-x: #{$spacing};
+   }
+}
+
+@for $i from 1 through $N_COLUMNS {
+   .col-#{$i} {
+      width: calc(
+         100% *
+            #{$i} /
+            var(--n-columns) -
+            (var(--n-columns) - #{$i}) *
+            (var(--spacing-x) / var(--n-columns))
+      );
+   }
+
+   @media only screen and (min-width: $breakpoint-sm) {
+      .col-sm-#{$i} {
+         width: calc(
+            100% * #{$i} / var(--n-columns) - (var(--n-columns) - #{$i}) * (var(
+                        --spacing-x
+                     ) / var(--n-columns))
+         );
+      }
+   }
+
+   @media (min-width: $breakpoint-md) {
+      .col-md-#{$i} {
+         width: calc(
+            100% * #{$i} / var(--n-columns) - (var(--n-columns) - #{$i}) * (var(
+                        --spacing-x
+                     ) / var(--n-columns))
+         );
+      }
+   }
+
+   @media (min-width: $breakpoint-xl) {
+      .col-lg-#{$i} {
+         width: calc(
+            100% * #{$i} / var(--n-columns) - (var(--n-columns) - #{$i}) * (var(
+                        --spacing-x
+                     ) / var(--n-columns))
+         );
+      }
+   }
+
+   @media only screen and (min-width: $breakpoint-xxl) {
+      .col-xxl-#{$i} {
+         width: calc(
+            100% * #{$i} / var(--n-columns) - (var(--n-columns) - #{$i}) * (var(
+                        --spacing-x
+                     ) / var(--n-columns))
+         );
+      }
+   }
+}
