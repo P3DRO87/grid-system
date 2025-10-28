@@ -1,11 +1,14 @@
 $N_COLUMNS: 12;
 $MAX_GAP: 10;
 
-$breakpoint-xxl: 1440px;
-$breakpoint-xl: 1200px;
-$breakpoint-lg: 992px;
-$breakpoint-md: 768px;
-$breakpoint-sm: 576px;
+$breakpoints-map: (
+   xs: 320px,
+   sm: 576px,
+   md: 768px,
+   lg: 992px,
+   xl: 1200px,
+   xxl: 1400px,
+);
 
 .grid-container {
    display: flex;
@@ -39,6 +42,10 @@ $breakpoint-sm: 576px;
       --spacing-x: #{$spacing};
       --spacing-y: #{$spacing};
    }
+}
+
+@for $i from 0 through $MAX_GAP {
+   $spacing: calc($i * 0.5rem);
 
    .r-sp-#{$i} {
       --spacing-y: #{$spacing};
@@ -59,44 +66,20 @@ $breakpoint-sm: 576px;
             (var(--spacing-x) / var(--n-columns))
       );
    }
+}
 
-   @media only screen and (min-width: $breakpoint-sm) {
-      .col-sm-#{$i} {
-         width: calc(
-            100% * #{$i} / var(--n-columns) - (var(--n-columns) - #{$i}) * (var(
-                        --spacing-x
-                     ) / var(--n-columns))
-         );
-      }
-   }
-
-   @media (min-width: $breakpoint-md) {
-      .col-md-#{$i} {
-         width: calc(
-            100% * #{$i} / var(--n-columns) - (var(--n-columns) - #{$i}) * (var(
-                        --spacing-x
-                     ) / var(--n-columns))
-         );
-      }
-   }
-
-   @media (min-width: $breakpoint-xl) {
-      .col-lg-#{$i} {
-         width: calc(
-            100% * #{$i} / var(--n-columns) - (var(--n-columns) - #{$i}) * (var(
-                        --spacing-x
-                     ) / var(--n-columns))
-         );
-      }
-   }
-
-   @media only screen and (min-width: $breakpoint-xxl) {
-      .col-xxl-#{$i} {
-         width: calc(
-            100% * #{$i} / var(--n-columns) - (var(--n-columns) - #{$i}) * (var(
-                        --spacing-x
-                     ) / var(--n-columns))
-         );
+@each $breakpoint, $value in $breakpoints-map {
+   @media (min-width: $value) {
+      @for $i from 1 through $N_COLUMNS {
+         .col-#{$breakpoint}-#{$i} {
+            width: calc(
+               100% *
+                  #{$i} /
+                  var(--n-columns) -
+                  (var(--n-columns) - #{$i}) *
+                  (var(--spacing-x) / var(--n-columns))
+            );
+         }
       }
    }
 }
