@@ -35,6 +35,28 @@ $breakpoints-map: (
    width: auto;
 }
 
+@each $breakpoint, $value in $breakpoints-map {
+   @media (min-width: $value) {
+      .col-#{$breakpoint}-auto {
+         width: auto;
+      }
+   }
+}
+
+.col-fill {
+   flex: 1 1 0;
+   min-width: 0;
+}
+
+@each $breakpoint, $value in $breakpoints-map {
+   @media (min-width: $value) {
+      .col-#{$breakpoint}-fill {
+         flex: 1 1 0;
+         min-width: 0;
+      }
+   }
+}
+
 @for $i from 0 through $MAX_GAP {
    $spacing: calc($i * 0.5rem);
 
