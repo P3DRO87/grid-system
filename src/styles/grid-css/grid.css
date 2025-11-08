@@ -6,250 +6,270 @@
    --spacing-y: 1rem;
    --n-columns: 12;
 }
-
 .col {
    flex: 0 0 auto;
 }
-
 [class*="col-"] {
    flex: 0 0 auto;
 }
-
 .grid-container > * {
    width: 100%;
 }
-
 .col-auto {
    width: auto;
 }
-
+@media (min-width: 320px) {
+   .col-xs-auto {
+      width: auto;
+   }
+}
+@media (min-width: 576px) {
+   .col-sm-auto {
+      width: auto;
+   }
+}
+@media (min-width: 768px) {
+   .col-md-auto {
+      width: auto;
+   }
+}
+@media (min-width: 992px) {
+   .col-lg-auto {
+      width: auto;
+   }
+}
+@media (min-width: 1200px) {
+   .col-xl-auto {
+      width: auto;
+   }
+}
+@media (min-width: 1400px) {
+   .col-xxl-auto {
+      width: auto;
+   }
+}
+.col-fill {
+   flex: 1 1 0;
+   min-width: 0;
+}
+@media (min-width: 320px) {
+   .col-xs-fill {
+      flex: 1 1 0;
+      min-width: 0;
+   }
+}
+@media (min-width: 576px) {
+   .col-sm-fill {
+      flex: 1 1 0;
+      min-width: 0;
+   }
+}
+@media (min-width: 768px) {
+   .col-md-fill {
+      flex: 1 1 0;
+      min-width: 0;
+   }
+}
+@media (min-width: 992px) {
+   .col-lg-fill {
+      flex: 1 1 0;
+      min-width: 0;
+   }
+}
+@media (min-width: 1200px) {
+   .col-xl-fill {
+      flex: 1 1 0;
+      min-width: 0;
+   }
+}
+@media (min-width: 1400px) {
+   .col-xxl-fill {
+      flex: 1 1 0;
+      min-width: 0;
+   }
+}
 .sp-0 {
    --spacing-x: 0rem;
    --spacing-y: 0rem;
 }
-
 .sp-1 {
    --spacing-x: 0.5rem;
    --spacing-y: 0.5rem;
 }
-
 .sp-2 {
    --spacing-x: 1rem;
    --spacing-y: 1rem;
 }
-
 .sp-3 {
    --spacing-x: 1.5rem;
    --spacing-y: 1.5rem;
 }
-
 .sp-4 {
    --spacing-x: 2rem;
    --spacing-y: 2rem;
 }
-
 .sp-5 {
    --spacing-x: 2.5rem;
    --spacing-y: 2.5rem;
 }
-
 .sp-6 {
    --spacing-x: 3rem;
    --spacing-y: 3rem;
 }
-
 .sp-7 {
    --spacing-x: 3.5rem;
    --spacing-y: 3.5rem;
 }
-
 .sp-8 {
    --spacing-x: 4rem;
    --spacing-y: 4rem;
 }
-
 .sp-9 {
    --spacing-x: 4.5rem;
    --spacing-y: 4.5rem;
 }
-
 .sp-10 {
    --spacing-x: 5rem;
    --spacing-y: 5rem;
 }
-
 .r-sp-0 {
    --spacing-y: 0rem;
 }
-
 .c-sp-0 {
    --spacing-x: 0rem;
 }
-
 .r-sp-1 {
    --spacing-y: 0.5rem;
 }
-
 .c-sp-1 {
    --spacing-x: 0.5rem;
 }
-
 .r-sp-2 {
    --spacing-y: 1rem;
 }
-
 .c-sp-2 {
    --spacing-x: 1rem;
 }
-
 .r-sp-3 {
    --spacing-y: 1.5rem;
 }
-
 .c-sp-3 {
    --spacing-x: 1.5rem;
 }
-
 .r-sp-4 {
    --spacing-y: 2rem;
 }
-
 .c-sp-4 {
    --spacing-x: 2rem;
 }
-
 .r-sp-5 {
    --spacing-y: 2.5rem;
 }
-
 .c-sp-5 {
    --spacing-x: 2.5rem;
 }
-
 .r-sp-6 {
    --spacing-y: 3rem;
 }
-
 .c-sp-6 {
    --spacing-x: 3rem;
 }
-
 .r-sp-7 {
    --spacing-y: 3.5rem;
 }
-
 .c-sp-7 {
    --spacing-x: 3.5rem;
 }
-
 .r-sp-8 {
    --spacing-y: 4rem;
 }
-
 .c-sp-8 {
    --spacing-x: 4rem;
 }
-
 .r-sp-9 {
    --spacing-y: 4.5rem;
 }
-
 .c-sp-9 {
    --spacing-x: 4.5rem;
 }
-
 .r-sp-10 {
    --spacing-y: 5rem;
 }
-
 .c-sp-10 {
    --spacing-x: 5rem;
 }
-
 .col-1 {
    width: calc(
       100% * 1 / var(--n-columns) - (var(--n-columns) - 1) * var(--spacing-x) /
          var(--n-columns)
    );
 }
-
 .col-2 {
    width: calc(
       100% * 2 / var(--n-columns) - (var(--n-columns) - 2) * var(--spacing-x) /
          var(--n-columns)
    );
 }
-
 .col-3 {
    width: calc(
       100% * 3 / var(--n-columns) - (var(--n-columns) - 3) * var(--spacing-x) /
          var(--n-columns)
    );
 }
-
 .col-4 {
    width: calc(
       100% * 4 / var(--n-columns) - (var(--n-columns) - 4) * var(--spacing-x) /
          var(--n-columns)
    );
 }
-
 .col-5 {
    width: calc(
       100% * 5 / var(--n-columns) - (var(--n-columns) - 5) * var(--spacing-x) /
          var(--n-columns)
    );
 }
-
 .col-6 {
    width: calc(
       100% * 6 / var(--n-columns) - (var(--n-columns) - 6) * var(--spacing-x) /
          var(--n-columns)
    );
 }
-
 .col-7 {
    width: calc(
       100% * 7 / var(--n-columns) - (var(--n-columns) - 7) * var(--spacing-x) /
          var(--n-columns)
    );
 }
-
 .col-8 {
    width: calc(
       100% * 8 / var(--n-columns) - (var(--n-columns) - 8) * var(--spacing-x) /
          var(--n-columns)
    );
 }
-
 .col-9 {
    width: calc(
       100% * 9 / var(--n-columns) - (var(--n-columns) - 9) * var(--spacing-x) /
          var(--n-columns)
    );
 }
-
 .col-10 {
    width: calc(
       100% * 10 / var(--n-columns) - (var(--n-columns) - 10) * var(--spacing-x) /
          var(--n-columns)
    );
 }
-
 .col-11 {
    width: calc(
       100% * 11 / var(--n-columns) - (var(--n-columns) - 11) * var(--spacing-x) /
          var(--n-columns)
    );
 }
-
 .col-12 {
    width: calc(
       100% * 12 / var(--n-columns) - (var(--n-columns) - 12) * var(--spacing-x) /
          var(--n-columns)
    );
 }
-
 @media (min-width: 320px) {
    .col-xs-1 {
       width: calc(
