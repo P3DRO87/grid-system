@@ -14,33 +14,23 @@ $breakpoints-map: (
    display: flex;
    flex-wrap: wrap;
    gap: var(--spacing-y) var(--spacing-x);
+
    --spacing-x: 1rem;
    --spacing-y: 1rem;
    --n-columns: #{$N_COLUMNS};
-}
-
-.col {
-   flex: 0 0 auto;
-}
-
-[class*="col-"] {
-   flex: 0 0 auto;
 }
 
 .grid-container > * {
    width: 100%;
 }
 
-.col-auto {
-   width: auto;
+.col,
+[class*="col-"] {
+   flex: 0 0 auto;
 }
 
-@each $breakpoint, $value in $breakpoints-map {
-   @media (min-width: $value) {
-      .col-#{$breakpoint}-auto {
-         width: auto;
-      }
-   }
+.col-auto {
+   width: auto;
 }
 
 .col-fill {
@@ -50,6 +40,10 @@ $breakpoints-map: (
 
 @each $breakpoint, $value in $breakpoints-map {
    @media (min-width: $value) {
+      .col-#{$breakpoint}-auto {
+         width: auto;
+      }
+
       .col-#{$breakpoint}-fill {
          flex: 1 1 0;
          min-width: 0;
@@ -60,21 +54,38 @@ $breakpoints-map: (
 @for $i from 0 through $MAX_GAP {
    $spacing: calc($i * 0.5rem);
 
-   .sp-#{$i} {
+   .g-#{$i} {
       --spacing-x: #{$spacing};
+      --spacing-y: #{$spacing};
+   }
+
+   .gx-#{$i} {
+      --spacing-x: #{$spacing};
+   }
+
+   .gy-#{$i} {
       --spacing-y: #{$spacing};
    }
 }
 
-@for $i from 0 through $MAX_GAP {
-   $spacing: calc($i * 0.5rem);
+@each $breakpoint, $value in $breakpoints-map {
+   @media (min-width: $value) {
+      @for $i from 0 through $MAX_GAP {
+         $spacing: calc($i * 0.5rem);
 
-   .r-sp-#{$i} {
-      --spacing-y: #{$spacing};
-   }
+         .g-#{$breakpoint}-#{$i} {
+            --spacing-x: #{$spacing};
+            --spacing-y: #{$spacing};
+         }
 
-   .c-sp-#{$i} {
-      --spacing-x: #{$spacing};
+         .gx-#{$breakpoint}-#{$i} {
+            --spacing-x: #{$spacing};
+         }
+
+         .gy-#{$breakpoint}-#{$i} {
+            --spacing-y: #{$spacing};
+         }
+      }
    }
 }
 
